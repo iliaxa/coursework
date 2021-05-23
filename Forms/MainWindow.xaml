@@ -13,18 +13,17 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addClientButton"  Content="Добавить" Margin="3" Padding="3" Click="addGroupButton_Click"></Button>
-                            <Button x:Name="editClientButton"  Content="Удалить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="deleteClientButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addClientButton"  Content="Добавить" Margin="3" Padding="3" Click="addClientButton_Click"></Button>
+                            <Button x:Name="editClientButton"  Content="Изменить" Margin="3" Padding="3" Click="editClientButton_Click"></Button>
+                            <Button x:Name="deleteClientButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteClientButton_Click"></Button>
                         </WrapPanel>
-                        <DataGrid AutoGenerateColumns="False" x:Name="clientGrid">
+                        <DataGrid AutoGenerateColumns="False" x:Name="clientGrid" IsReadOnly="True" CanUserResizeColumns="False">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
                                 <DataGridTextColumn Binding="{Binding Surname}" Header="Фамилия"/>
                                 <DataGridTextColumn Binding="{Binding Name}" Header="Имя"/>
                                 <DataGridTextColumn Binding="{Binding Lastname}" Header="Отчество"/>
                                 <DataGridTextColumn Binding="{Binding Phone_Number}" Header="Номер телефона"/>
-                                <DataGridTextColumn Binding="{Binding Order}" Header="Заказ"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
@@ -39,13 +38,13 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addWorkerButton"  Content="Добавить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="editWorkerButton"  Content="Удалить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="deleteWorkerButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addWorkerButton"  Content="Добавить" Margin="3" Padding="3" Click="addWorkerButton_Click" RenderTransformOrigin="0.503,0.508"></Button>
+                            <Button x:Name="editWorkerButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="deleteWorkerButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteWorkerButton_Click"></Button>
                         </WrapPanel>
                         <DataGrid AutoGenerateColumns="False" x:Name="workersGrid">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Visible"/>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
                                 <DataGridTextColumn Binding="{Binding Surname}" Header="Фамилия"/>
                                 <DataGridTextColumn Binding="{Binding Name}" Header="Имя"/>
                                 <DataGridTextColumn Binding="{Binding Lastname}" Header="Отчество"/>
@@ -71,17 +70,17 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addOrderButton"  Content="Добавить" Margin="3" Padding="3" Click="addGroupButton_Click"></Button>
-                            <Button x:Name="editOrderButton"  Content="Удалить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="deleteOrderButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addOrderButton"  Content="Добавить" Margin="3" Padding="3" Click="addOrderButton_Click"></Button>
+                            <Button x:Name="editOrderButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="deleteOrderButton"  Content="Удалить" Margin="3" Padding="3"></Button>
                         </WrapPanel>
-                        <DataGrid AutoGenerateColumns="False" x:Name="orderGrid" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" SelectionMode="Single">
+                        <DataGrid AutoGenerateColumns="False" x:Name="orderGrid">
                             <DataGrid.Columns>
                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
                                 <DataGridTextColumn Binding="{Binding Date}" Header="Дата"/>
                                 <DataGridTextColumn Binding="{Binding Time}" Header="Время"/>
                                 <DataGridTextColumn Binding="{Binding Place}" Header="Место"/>
-                                <DataGridTextColumn Binding="{Binding Order_List}" Header="Список заказов"/>
+                                <DataGridTextColumn Binding="{Binding Order_Type}" Header="Список заказов"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
@@ -96,8 +95,8 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addOrderListButton"  Content="Добавить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="editOrderListButton"  Content="Удалить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addOrderListButton"  Content="Добавить" Margin="3" Padding="3" Click="addOrderListButton_Click"></Button>
+                            <Button x:Name="editOrderListButton"  Content="Изменить" Margin="3" Padding="3"></Button>
                             <Button x:Name="deleteOrderListButton"  Content="Изменить" Margin="3" Padding="3"></Button>
                         </WrapPanel>
                         <DataGrid AutoGenerateColumns="False" x:Name="orderListGrid">
@@ -118,9 +117,9 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addProductButton"  Content="Добавить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="editProductButton"  Content="Удалить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="deleteProductButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addProductButton"  Content="Добавить" Margin="3" Padding="3" Click="addProductButton_Click"></Button>
+                            <Button x:Name="editProductButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="deleteProductButton"  Content="Удалить" Margin="3" Padding="3"></Button>
                         </WrapPanel>
                         <DataGrid AutoGenerateColumns="False" x:Name="productsGrid">
                             <DataGrid.Columns>
@@ -143,9 +142,9 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addDishButton"  Content="Добавить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="editDishButton"  Content="Удалить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="deleteDishButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addDishButton"  Content="Добавить" Margin="3" Padding="3" Click="addDishButton_Click"></Button>
+                            <Button x:Name="editDishButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="deleteDishButton"  Content="Удалить" Margin="3" Padding="3"></Button>
                         </WrapPanel>
                         <DataGrid AutoGenerateColumns="False" x:Name="dishesGrid">
                             <DataGrid.Columns>
@@ -170,9 +169,9 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addTransportButton"  Content="Добавить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="editTransportButton"  Content="Удалить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="deleteTransportButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addTransportButton"  Content="Добавить" Margin="3" Padding="3" Click="addTransportButton_Click"></Button>
+                            <Button x:Name="editTransportButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="deleteTransportButton"  Content="Удалить" Margin="3" Padding="3"></Button>
                         </WrapPanel>
                         <DataGrid AutoGenerateColumns="False" x:Name="transportsGrid">
                             <DataGrid.Columns>
@@ -194,9 +193,9 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addDishTypeButton"  Content="Добавить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="editDishTypeButton"  Content="Удалить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="deleteDishTypeButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addDishTypeButton"  Content="Добавить" Margin="3" Padding="3" Click="addDishTypeButton_Click"></Button>
+                            <Button x:Name="editDishTypeButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="deleteDishTypeButton"  Content="Удалить" Margin="3" Padding="3"></Button>
                         </WrapPanel>
                         <DataGrid AutoGenerateColumns="False" x:Name="dishTypesGrid">
                             <DataGrid.Columns>
@@ -217,9 +216,9 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addOrderTypeButton"  Content="Добавить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="editOrderTypetButton"  Content="Удалить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="deleteOrderTypeButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addOrderTypeButton"  Content="Добавить" Margin="3" Padding="3" Click="addOrderTypeButton_Click"></Button>
+                            <Button x:Name="editOrderTypetButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="deleteOrderTypeButton"  Content="Удалить" Margin="3" Padding="3"></Button>
                         </WrapPanel>
                         <DataGrid AutoGenerateColumns="False" x:Name="orderTypeGrid">
                             <DataGrid.Columns>
@@ -241,9 +240,9 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addProductTypeButton"  Content="Добавить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="editProductTypeButton"  Content="Удалить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="deleteProductTypeButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addProductTypeButton"  Content="Добавить" Margin="3" Padding="3" Click="addProductTypeButton_Click"></Button>
+                            <Button x:Name="editProductTypeButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="deleteProductTypeButton"  Content="Удалить" Margin="3" Padding="3"></Button>
                         </WrapPanel>
                         <DataGrid AutoGenerateColumns="False" x:Name="productsTypeGrid">
                             <DataGrid.Columns>
@@ -264,9 +263,9 @@
                 <TabItem.Content>
                     <StackPanel>
                         <WrapPanel>
-                            <Button x:Name="addBatch_of_productsButton"  Content="Добавить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="editBatch_of_productsButton"  Content="Удалить" Margin="3" Padding="3"></Button>
-                            <Button x:Name="deleteBatch_of_productsButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="addBatch_of_productsButton"  Content="Добавить" Margin="3" Padding="3" Click="addBatchButton_Click"></Button>
+                            <Button x:Name="editBatch_of_productsButton"  Content="Изменить" Margin="3" Padding="3"></Button>
+                            <Button x:Name="deleteBatch_of_productsButton"  Content="Удалить" Margin="3" Padding="3"></Button>
                         </WrapPanel>
                         <DataGrid AutoGenerateColumns="False" x:Name="batch_of_productsGrid">
                             <DataGrid.Columns>

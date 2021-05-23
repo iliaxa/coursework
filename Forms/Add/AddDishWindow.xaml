@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfApplicationEntity.Forms.Add.AddDishWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplicationEntity.Forms.Add"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="AddDishWindow" Height="250" Width="300">
+    <Grid>
+        <StackPanel>
+            <WrapPanel Margin="0,10,10,0" HorizontalAlignment="Right">
+                <Label Content="Название: "/>
+                <TextBox x:Name="NameBox" Height="20" Width="150"/>
+            </WrapPanel>
+            <WrapPanel Margin="0,0,10,0" HorizontalAlignment="Right">
+                <Label Content="Цена: "/>
+                <TextBox x:Name="PriceBox" Height="20" Width="150"/>
+            </WrapPanel>
+            <WrapPanel Margin="0,0,10,0" HorizontalAlignment="Right">
+                <Label Content="Вес: "/>
+                <TextBox x:Name="WeightBox" Height="20" Width="150"/>
+            </WrapPanel>
+            <WrapPanel Margin="0,0,10,0" HorizontalAlignment="Right">
+                <Label Content="Состав: "/>
+                <TextBox x:Name="CompositionBox" Height="20" Width="150"/>
+            </WrapPanel>
+            <WrapPanel Margin="0,0,10,10" HorizontalAlignment="Right">
+                <Label Content="Тип блюда: "/>
+                <ComboBox x:Name="DishTypeCombo" Height="20" Width="150"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Content="Добавить" x:Name="AddButton" Margin="0,0,70,0" Height="25" Width="55" Click="AddButton_Click"/>
+                <Button Content="Отмена" Margin="0,0,0,0" Click="CancelButton_Click" Height="25" Width="55"/>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>

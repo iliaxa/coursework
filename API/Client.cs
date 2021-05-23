@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 namespace WpfApplicationEntity.API
 {
-    class Client
+    public class Client
     {
-        [Key] public int Id { get; set; }
+        [Key] public int ID { get; set; }
         [Required] public string Surname { get; set; }
         [Required] public string Name { get; set; }
         [Required] public string Lastname { get; set; }

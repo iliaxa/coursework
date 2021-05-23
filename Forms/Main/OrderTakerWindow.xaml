@@ -1,0 +1,116 @@
+﻿<Window x:Class="WpfApplicationEntity.Forms.Main.OrderTakerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplicationEntity.Forms.Main"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="OrderTakerWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem x:Name="clientsTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Клиент</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addClientButton"  Content="Добавить" Margin="3" Padding="3" Click="addClientButton_Click" RenderTransformOrigin="0.503,0.508"></Button>
+                            <Button x:Name="editClientButton"  Content="Изменить" Margin="3" Padding="3" Click="editClientButton_Click"></Button>
+                            <Button x:Name="deleteClientButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteClientButton_Click"></Button>
+                            <Button x:Name="createReportClientButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportClientButton_Click"></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="clientGrid" IsReadOnly="True" CanUserResizeColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Surname}" Header="Фамилия"/>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Имя"/>
+                                <DataGridTextColumn Binding="{Binding Lastname}" Header="Отчество"/>
+                                <DataGridTextColumn Binding="{Binding Phone_Number}" Header="Номер телефона"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="ordersTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Заказ</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addOrderButton"  Content="Добавить" Margin="3" Padding="3" Click="addOrderButton_Click"></Button>
+                            <Button x:Name="editOrderButton"  Content="Изменить" Margin="3" Padding="3" Click="editOrderButton_Click"></Button>
+                            <Button x:Name="deleteOrderButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteOrderButton_Click"></Button>
+                            <Button x:Name="createReportOrderButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportOrderButton_Click"></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="orderGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Date}" Header="Дата"/>
+                                <DataGridTextColumn Binding="{Binding Time}" Header="Время"/>
+                                <DataGridTextColumn Binding="{Binding Place}" Header="Место"/>
+                                <DataGridTextColumn Binding="{Binding Order_Type}" Header="Список заказов"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="orderTypeTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Тип заказа</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addOrderTypeButton"  Content="Добавить" Margin="3" Padding="3" Click="addOrderTypeButton_Click"></Button>
+                            <Button x:Name="editOrderTypetButton"  Content="Изменить" Margin="3" Padding="3" Click="editOrderTypetButton_Click"></Button>
+                            <Button x:Name="deleteOrderTypeButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteOrderTypeButton_Click"></Button>
+                            <Button x:Name="createReportOrderTypeButton"  Content="Создать отчет" Margin="3" Padding="3" RenderTransformOrigin="0.502,0.508" Click="createReportOrderTypeButton_Click"></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="orderTypeGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
+                                <DataGridTextColumn Binding="{Binding Description}" Header="Описание"/>
+                                <DataGridTextColumn Binding="{Binding Status}" Header="Статус"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="orderListTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Список заказов</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addOrderListButton"  Content="Добавить" Margin="3" Padding="3" Click="addOrderListButton_Click"></Button>
+                            <Button x:Name="editOrderListButton"  Content="Изменить" Margin="3" Padding="3" Click="editOrderListButton_Click"></Button>
+                            <Button x:Name="deleteOrderListButton"  Content="Изменить" Margin="3" Padding="3" Click="deleteOrderListButton_Click"></Button>
+                            <Button x:Name="createReportOrderListButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportOrderListButton_Click" ></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="orderListGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Count}" Header="Количество"/>
+                                <DataGridTextColumn Binding="{Binding Order}" Header="Заказ"/>
+                                <DataGridTextColumn Binding="{Binding Dish}" Header="Блюдо"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

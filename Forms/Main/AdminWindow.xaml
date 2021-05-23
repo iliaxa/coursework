@@ -1,0 +1,140 @@
+﻿<Window x:Class="WpfApplicationEntity.Forms.Main.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplicationEntity.Forms.Main"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="AdminWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem x:Name="workerTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Работник</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addWorkerButton"  Content="Добавить" Margin="3" Padding="3" Click="addWorkerButton_Click" RenderTransformOrigin="0.503,0.508"></Button>
+                            <Button x:Name="editWorkerButton"  Content="Изменить" Margin="3" Padding="3" Click="editWorkerButton_Click"></Button>
+                            <Button x:Name="deleteWorkerButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteWorkerButton_Click"></Button>
+                            <Button x:Name="createReportWorkerButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportWorkerButton_Click"></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="workersGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Surname}" Header="Фамилия"/>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Имя"/>
+                                <DataGridTextColumn Binding="{Binding Lastname}" Header="Отчество"/>
+                                <DataGridTextColumn Binding="{Binding Adress}" Header="Адрес"/>
+                                <DataGridTextColumn Binding="{Binding Phone_Number}" Header="Номер телефона"/>
+                                <DataGridTextColumn Binding="{Binding Driver_License}" Header="Водительское удостоверение"/>
+                                <DataGridTextColumn Binding="{Binding Gender}" Header="Пол"/>
+                                <DataGridTextColumn Binding="{Binding Login}" Header="Логин"/>
+                                <DataGridTextColumn Binding="{Binding Password}" Header="Пароль"/>
+                                <DataGridTextColumn Binding="{Binding Birthday}" Header="День рождения"/>
+                                <DataGridTextColumn Binding="{Binding Access_Level}" Header="Должность"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="ordersTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Заказ</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addOrderButton"  Content="Добавить" Margin="3" Padding="3" Click="addOrderButton_Click"></Button>
+                            <Button x:Name="editOrderButton"  Content="Изменить" Margin="3" Padding="3" Click="editOrderButton_Click"></Button>
+                            <Button x:Name="deleteOrderButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteOrderButton_Click"></Button>
+                            <Button x:Name="createReportOrderButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportOrderButton_Click"></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="orderGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Client}" Header="Заказчик"/>
+                                <DataGridTextColumn Binding="{Binding Date}" Header="Дата"/>
+                                <DataGridTextColumn Binding="{Binding Time}" Header="Время"/>
+                                <DataGridTextColumn Binding="{Binding Place}" Header="Место"/>
+                                <DataGridTextColumn Binding="{Binding Transport}" Header="Транспорт"/>
+                                <DataGridTextColumn Binding="{Binding Worker}" Header="Работник"/>
+                                <DataGridTextColumn Binding="{Binding Order_Type}" Header="Тип заказа"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="productTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Продукт</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addProductButton"  Content="Добавить" Margin="3" Padding="3" Click="addProductButton_Click"></Button>
+                            <Button x:Name="editProductButton"  Content="Изменить" Margin="3" Padding="3" Click="editProductButton_Click"></Button>
+                            <Button x:Name="deleteProductButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteProductButton_Click"></Button>
+                            <Button x:Name="createReportProductButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportProductButton_Click"></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="productsGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
+                                <DataGridTextColumn Binding="{Binding Storage_life}" Header="Срок хранения"/>
+                                <DataGridTextColumn Binding="{Binding Product_Type}" Header="Тип продукта"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="transportTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Транспорт</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addTransportButton"  Content="Добавить" Margin="3" Padding="3" Click="addTransportButton_Click"></Button>
+                            <Button x:Name="editTransportButton"  Content="Изменить" Margin="3" Padding="3" Click="editTransportButton_Click"></Button>
+                            <Button x:Name="deleteTransportButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteTransportButton_Click"></Button>
+                            <Button x:Name="createReportTransportButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportTransportButton_Click"></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="transportsGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
+                                <DataGridTextColumn Binding="{Binding Number}" Header="Номер"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="transportb">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Экспорт базы данных</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="ImportButton"  Content="Импорт базы данных" Margin="3" Padding="3" Click="ImportButton_Click" ></Button>
+                            <Button x:Name="ExportButton"  Content="Экспорт базы данных" Margin="3" Padding="3" Click="ExportButton_Click" RenderTransformOrigin="0.502,0.508" ></Button>
+                        </WrapPanel>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

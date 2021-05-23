@@ -2,8 +2,8 @@
 using System.ComponentModel.DataAnnotations;
 namespace WpfApplicationEntity.API
 {
-    class Dish_products
+    public class Dish_products
     {
-        [Key] public int Id { get; set; }
+        [Key] public int ID { get; set; }
     }
 }

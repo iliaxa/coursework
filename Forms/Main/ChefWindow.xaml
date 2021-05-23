@@ -1,0 +1,139 @@
+﻿<Window x:Class="WpfApplicationEntity.Forms.Main.ChefWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplicationEntity.Forms.Main"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="ChefWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem x:Name="productTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Продукт</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addProductButton"  Content="Добавить" Margin="3" Padding="3" Click="addProductButton_Click"></Button>
+                            <Button x:Name="editProductButton"  Content="Изменить" Margin="3" Padding="3" Click="editProductButton_Click"></Button>
+                            <Button x:Name="deleteProductButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteProductButton_Click"></Button>
+                            <Button x:Name="createReportProductButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportProductButton_Click"></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="productsGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
+                                <DataGridTextColumn Binding="{Binding Storage_life}" Header="Срок хранения"/>
+                                <DataGridTextColumn Binding="{Binding Product_Type}" Header="Тип продукта"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="batch_of_productsTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Доставка продуктов</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addBatch_of_productsButton"  Content="Добавить" Margin="3" Padding="3" Click="addBatchButton_Click"></Button>
+                            <Button x:Name="editBatch_of_productsButton"  Content="Изменить" Margin="3" Padding="3" RenderTransformOrigin="0.503,0.508" Click="editBatch_of_productsButton_Click"></Button>
+                            <Button x:Name="deleteBatch_of_productsButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteBatch_of_productsButton_Click"></Button>
+                            <Button x:Name="createReportBatchButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportBatchButton_Click" ></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="batch_of_productsGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Product}" Header="Продукт"/>
+                                <DataGridTextColumn Binding="{Binding Count}" Header="Количество"/>
+                                <DataGridTextColumn Binding="{Binding Delivery_Date}" Header="Дата доставки"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="productTypeTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Тип продукта</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addProductTypeButton"  Content="Добавить" Margin="3" Padding="3" Click="addProductTypeButton_Click"></Button>
+                            <Button x:Name="editProductTypeButton"  Content="Изменить" Margin="3" Padding="3" Click="editProductTypeButton_Click"></Button>
+                            <Button x:Name="deleteProductTypeButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteProductTypeButton_Click"></Button>
+                            <Button x:Name="createReportTypeProductButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportTypeProductButton_Click" ></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="productsTypeGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
+                                <DataGridTextColumn Binding="{Binding Description}" Header="Описание"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="dishTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Блюдо</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addDishButton"  Content="Добавить" Margin="3" Padding="3" Click="addDishButton_Click"></Button>
+                            <Button x:Name="editDishButton"  Content="Изменить" Margin="3" Padding="3" Click="editDishButton_Click"></Button>
+                            <Button x:Name="deleteDishButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteDishButton_Click"></Button>
+                            <Button x:Name="createReportDishButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportDishButton_Click" ></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="dishesGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
+                                <DataGridTextColumn Binding="{Binding Price}" Header="Цена"/>
+                                <DataGridTextColumn Binding="{Binding Weight}" Header="Вес"/>
+                                <DataGridTextColumn Binding="{Binding Composition}" Header="Состав"/>
+                                <DataGridTextColumn Binding="{Binding Dish_Type}" Header="Тип блюда"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="dishTypeTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Тип блюда</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+                        <WrapPanel>
+                            <Button x:Name="addDishTypeButton"  Content="Добавить" Margin="3" Padding="3" Click="addDishTypeButton_Click"></Button>
+                            <Button x:Name="editDishTypeButton"  Content="Изменить" Margin="3" Padding="3" Click="editDishTypeButton_Click"></Button>
+                            <Button x:Name="deleteDishTypeButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteDishTypeButton_Click"></Button>
+                            <Button x:Name="createReportTypeDishButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportTypeDishButton_Click"></Button>
+                        </WrapPanel>
+                        <DataGrid AutoGenerateColumns="False" x:Name="dishTypesGrid">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
+                                <DataGridTextColumn Binding="{Binding Description}" Header="Описание"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

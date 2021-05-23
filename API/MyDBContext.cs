@@ -1,9 +1,10 @@
 ﻿using System.Data.Entity;
 namespace WpfApplicationEntity.API
 {
-    class MyDBContext : DbContext
+    public class MyDBContext : DbContext
     {
         public MyDBContext() : base("DbConnectString") { }
+        public DbSet<AccessLevel> Levels { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Batch_of_products> Batch_Of_Products{ get; set; }
         public DbSet<Dish> Dishes { get; set; }
@@ -16,7 +17,5 @@ namespace WpfApplicationEntity.API
         public DbSet<Product_Type> Product_Types{ get; set; }
         public DbSet<Transport> Transports{ get; set; }
         public DbSet<Worker> Workers{ get; set; }
-
-
     }
 }
