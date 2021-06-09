@@ -64,12 +64,15 @@ namespace WpfApplicationEntity.Forms.Add
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Product_Type EditProduct_Type = new Product_Type();
-            if (EditID != -1)
+            using (MyDBContext db = new MyDBContext())
             {
-                AddButton.Content = "Сохранить";
-                NameBox.Text = EditProduct_Type.Name;
-                DescrBox.Text = EditProduct_Type.Description;
+                Product_Type EditProduct_Type = db.Product_Types.Find(EditID);
+                if (EditID != -1)
+                {
+                    AddButton.Content = "Сохранить";
+                    NameBox.Text = EditProduct_Type.Name;
+                    DescrBox.Text = EditProduct_Type.Description;
+                }
             }
         }
     }

@@ -122,7 +122,7 @@ namespace WpfApplicationEntity.Forms.Add
         {
             using (MyDBContext db = new MyDBContext())
             {
-                Order EditOrder = new Order();
+                Order EditOrder = db.Orders.Find(EditID);
                 var clients = db.Clients.ToList();
                 var types = db.Order_Types.ToList();
                 var workers = db.Workers.ToList();

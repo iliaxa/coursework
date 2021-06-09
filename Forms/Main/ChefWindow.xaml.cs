@@ -53,7 +53,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (productsGrid.SelectedItem != null)
             {
-                var edit = (Product)productsGrid.SelectedItem;
+                var edit = (GridsInfo.newProduct)productsGrid.SelectedItem;
                 AddProductWindow form = new AddProductWindow(DBContext.Products.Find(edit.ID).ID);
                 form.ShowDialog();
             }
@@ -64,7 +64,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (productsGrid.SelectedItem != null)
             {
-                var deleted = (Product)productsGrid.SelectedItem;
+                var deleted = (GridsInfo.newProduct)productsGrid.SelectedItem;
                 var list = (from item in DBContext.Products.ToList()
                             where item.ID.CompareTo(deleted.ID) == 0
                             select item).ToList();
@@ -85,7 +85,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (batch_of_productsGrid.SelectedItem != null)
             {
-                var edit = (Batch_of_products)batch_of_productsGrid.SelectedItem;
+                var edit = (GridsInfo.newBatch)batch_of_productsGrid.SelectedItem;
                 AddBatchWindow form = new AddBatchWindow(DBContext.Batch_Of_Products.Find(edit.ID).ID);
                 form.ShowDialog();
             }
@@ -96,7 +96,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (batch_of_productsGrid.SelectedItem != null)
             {
-                var deleted = (Batch_of_products)batch_of_productsGrid.SelectedItem;
+                var deleted = (GridsInfo.newBatch)batch_of_productsGrid.SelectedItem;
                 var list = (from item in DBContext.Batch_Of_Products.ToList()
                             where item.ID.CompareTo(deleted.ID) == 0
                             select item).ToList();
@@ -149,7 +149,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (dishesGrid.SelectedItem != null)
             {
-                var edit = (Dish)dishesGrid.SelectedItem;
+                var edit = (GridsInfo.newDish)dishesGrid.SelectedItem;
                 AddDishWindow form = new AddDishWindow(DBContext.Dishes.Find(edit.ID).ID);
                 form.ShowDialog();
             }
@@ -160,7 +160,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (dishesGrid.SelectedItem != null)
             {
-                var deleted = (Dish)dishesGrid.SelectedItem;
+                var deleted = (GridsInfo.newDish)dishesGrid.SelectedItem;
                 var list = (from item in DBContext.Dishes.ToList()
                             where item.ID.CompareTo(deleted.ID) == 0
                             select item).ToList();

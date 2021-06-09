@@ -93,11 +93,11 @@ namespace WpfApplicationEntity.Forms.Add
                 if (EditID != -1)
                 {
                     AddButton.Content = "Сохранить";
-                    EditDish.Name = NameBox.Text;
-                    EditDish.Price = Convert.ToDouble(PriceBox.Text);
-                    EditDish.Weight = Convert.ToDouble(WeightBox.Text);
-                    EditDish.Composition = CompositionBox.Text;
-                    EditDish.Dish_Type = GetDish_Type(db.Dish_Types.ToList());
+                    NameBox.Text= EditDish.Name;
+                    PriceBox.Text=EditDish.Price.ToString();
+                    WeightBox.Text=EditDish.Weight.ToString();
+                    CompositionBox.Text=EditDish.Composition;
+                    DishTypeCombo.SelectedItem = EditDish.Dish_Type.Name;
                 }
             }
         }

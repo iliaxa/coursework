@@ -72,7 +72,7 @@ namespace WpfApplicationEntity.Forms.Add
         {
             using (MyDBContext db = new MyDBContext())
             {
-                Client EditClient = new Client();
+                Client EditClient = db.Clients.Find(EditID);
                 if (EditID != -1)
                 {
                     SurnameBox.Text = EditClient.Surname;

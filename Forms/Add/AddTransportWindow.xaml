@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplicationEntity.Forms.Add"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="AddTransportWindow" Height="120" Width="250">
     <Grid>
         <StackPanel>

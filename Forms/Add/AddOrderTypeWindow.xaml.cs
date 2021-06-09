@@ -69,7 +69,7 @@ namespace WpfApplicationEntity.Forms.Add
         {
             using (MyDBContext db = new MyDBContext())
             {
-                Order_Type EditOrder_Type = new Order_Type();
+                Order_Type EditOrder_Type = db.Order_Types.Find(EditID);
                 if (EditID != -1)
                 {
                     AddButton.Content = "Сохранить";

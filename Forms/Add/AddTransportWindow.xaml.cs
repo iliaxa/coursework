@@ -22,26 +22,58 @@ namespace WpfApplicationEntity.Forms.Add
         {
             InitializeComponent();
         }
-        readonly MyDBContext DBContext = new MyDBContext();
+        public AddTransportWindow(int ID)
+        {
+            InitializeComponent();
+            this.EditID = ID;
+        }
+        private readonly int EditID = -1;
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(NameBox.Text) &&
-                !String.IsNullOrWhiteSpace(NumberBox.Text))
+            using (MyDBContext db = new MyDBContext())
             {
-                Transport transport = new Transport
+                if (!String.IsNullOrWhiteSpace(NameBox.Text) &&
+                    !String.IsNullOrWhiteSpace(NumberBox.Text))
                 {
-                    ID = DBContext.Transports.Count() + 1,
-                    Name = NameBox.Text,
-                    Number = NumberBox.Text
-                };
-                DBContext.Transports.Add(transport);
-                DBContext.SaveChanges();
+                    Transport transport = new Transport
+                    {
+                        ID = db.Transports.Count() + 1,
+                        Name = NameBox.Text,
+                        Number = NumberBox.Text
+                    };
+                    if (EditID == -1)
+                    {
+                        db.Transports.Add(transport);
+                    }
+                    else
+                    {
+                        var result = db.Transports.Find(EditID);
+                        result.Name = NameBox.Text;
+                        result.Number = NumberBox.Text;
+                    }
+                }
+                else MessageBox.Show("Заполнены не все поля");
+                db.SaveChanges();
+                this.Close();
             }
-            else MessageBox.Show("Заполнены не все поля");
         }
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (MyDBContext db = new MyDBContext())
+            {
+                Transport EditTransport = db.Transports.Find(this.EditID);
+                if (EditID != -1)
+                {
+                    AddButton.Content = "Сохранить";
+                    NameBox.Text = EditTransport.Name;
+                    NumberBox.Text = EditTransport.Number;
+                }
+            }
         }
     }
 }

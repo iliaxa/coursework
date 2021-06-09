@@ -52,7 +52,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (workersGrid.SelectedItem != null)
             {
-                var edit = (Worker)workersGrid.SelectedItem;
+                var edit = (GridsInfo.newWorker)workersGrid.SelectedItem;
                 AddWorkerWindow form = new AddWorkerWindow(DBContext.Workers.Find(edit.ID).ID);
                 form.ShowDialog();
             }
@@ -64,7 +64,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (workersGrid.SelectedItem != null)
             {
-                var deleted = (Worker)workersGrid.SelectedItem;
+                var deleted = (GridsInfo.newWorker)workersGrid.SelectedItem;
                 var list = (from item in DBContext.Workers.ToList()
                             where item.ID.CompareTo(deleted.ID) == 0
                             select item).ToList();
@@ -86,7 +86,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (orderGrid.SelectedItem != null)
             {
-                var edit = (Order)orderGrid.SelectedItem;
+                var edit = (GridsInfo.newOrder)orderGrid.SelectedItem;
                 AddOrderWindow form = new AddOrderWindow(DBContext.Orders.Find(edit.ID).ID);
                 form.ShowDialog();
             }
@@ -98,7 +98,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (orderGrid.SelectedItem != null)
             {
-                var deleted = (Order)orderGrid.SelectedItem;
+                var deleted = (GridsInfo.newOrder)orderGrid.SelectedItem;
                 var list = (from item in DBContext.Orders.ToList()
                             where item.ID.CompareTo(deleted.ID) == 0
                             select item).ToList();
@@ -120,7 +120,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (productsGrid.SelectedItem != null)
             {
-                var edit = (Product)productsGrid.SelectedItem;
+                var edit = (GridsInfo.newProduct)productsGrid.SelectedItem;
                 AddProductWindow form = new AddProductWindow(DBContext.Products.Find(edit.ID).ID);
                 form.ShowDialog();
             }
@@ -132,7 +132,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (productsGrid.SelectedItem != null)
             {
-                var deleted = (Product)productsGrid.SelectedItem;
+                var deleted = (GridsInfo.newProduct)productsGrid.SelectedItem;
                 var list = (from item in DBContext.Products.ToList()
                             where item.ID.CompareTo(deleted.ID) == 0
                             select item).ToList();

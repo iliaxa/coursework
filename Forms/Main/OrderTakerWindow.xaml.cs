@@ -64,17 +64,24 @@ namespace WpfApplicationEntity.Forms.Main
 
         private void deleteClientButton_Click(object sender, RoutedEventArgs e)
         {
-            if (clientGrid.SelectedItem != null)
+            try
             {
-                var deleted = (Client)clientGrid.SelectedItem;
-                var list = (from item in DBContext.Clients.ToList()
-                               where item.ID.CompareTo(deleted.ID) == 0
-                               select item).ToList();
-                DBContext.Clients.Remove(list[0]);
-                DBContext.SaveChanges();
-                this.ShowAll();
+                if (clientGrid.SelectedItem != null)
+                {
+                    var deleted = (Client)clientGrid.SelectedItem;
+                    var list = (from item in DBContext.Clients.ToList()
+                                where item.ID.CompareTo(deleted.ID) == 0
+                                select item).ToList();
+                    DBContext.Clients.Remove(list[0]);
+                    DBContext.SaveChanges();
+                    this.ShowAll();
+                }
+                else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
             }
-            else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void addOrderButton_Click(object sender, RoutedEventArgs e)
@@ -88,7 +95,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (orderGrid.SelectedItem != null)
             {
-                var edit = (Order)orderGrid.SelectedItem;
+                var edit = (GridsInfo.newOrder)orderGrid.SelectedItem;
                 AddOrderWindow form = new AddOrderWindow(DBContext.Orders.Find(edit.ID).ID);
                 form.ShowDialog();
             }
@@ -100,7 +107,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (orderGrid.SelectedItem != null)
             {
-                var deleted = (Order)orderGrid.SelectedItem;
+                var deleted = (GridsInfo.newOrder)orderGrid.SelectedItem;
                 var list = (from item in DBContext.Orders.ToList()
                                where item.ID.CompareTo(deleted.ID) == 0
                                select item).ToList();
@@ -156,7 +163,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (orderListGrid.SelectedItem != null)
             {
-                var edit = (Order_list)orderListGrid.SelectedItem;
+                var edit = (GridsInfo.newOrderList)orderListGrid.SelectedItem;
                 AddOrderListWindow form = new AddOrderListWindow(DBContext.Order_Lists.Find(edit.ID).ID);
                 form.ShowDialog();
             }
@@ -168,7 +175,7 @@ namespace WpfApplicationEntity.Forms.Main
         {
             if (orderListGrid.SelectedItem != null)
             {
-                var deleted = (Order_list)orderListGrid.SelectedItem;
+                var deleted = (GridsInfo.newOrderList)orderListGrid.SelectedItem;
                 var list = (from item in DBContext.Order_Lists.ToList()
                                where item.ID.CompareTo(deleted.ID) == 0
                                select item).ToList();

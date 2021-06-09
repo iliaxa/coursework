@@ -6,7 +6,7 @@ using WpfApplicationEntity.Forms.Add;
 using WpfApplicationEntity.API;
 namespace WpfApplicationEntity.API
 {
-    static class GridsInfo
+    public static class GridsInfo
     {
         public struct newBatch
         {

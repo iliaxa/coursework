@@ -85,7 +85,7 @@ namespace WpfApplicationEntity.Forms.Add
         {
             using (MyDBContext db = new MyDBContext())
             {
-                Order_list EditOrder_List = new Order_list();
+                Order_list EditOrder_List = db.Order_Lists.Find(EditID);
                 var orders = db.Orders.ToList();
                 var dishes = db.Dishes.ToList();
                 List<string> orderList = new List<string>();

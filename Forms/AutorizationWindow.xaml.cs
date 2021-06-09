@@ -25,38 +25,7 @@ namespace WpfApplicationEntity
         }
         private void AutorizationButton_Click(object sender, RoutedEventArgs e)
         {
-            using (MyDBContext db = new MyDBContext())
-            {
-                if (!String.IsNullOrWhiteSpace(LoginBox.Text) && !String.IsNullOrWhiteSpace(PasswordBox.Text))
-                {
-                    var users = (from user in db.Workers.ToList()
-                                 where user.Login.CompareTo(LoginBox.Text) == 0 && user.Password.CompareTo(PasswordBox.Text) == 0
-                                 select user).ToList();
-                    if (users.Count() > 0 && db.Workers.Count() > 0)
-                    {
-                        if (users[0].Access_Level.Level == "Администратор")
-                        {
-                            AdminWindow form = new AdminWindow();
-                            form.Show();
-                            this.Close();
-                        }
-                        if (users[0].Access_Level.Level == "Шеф-повар")
-                        {
-                            ChefWindow form = new ChefWindow();
-                            form.Show();
-                            this.Close();
-                        }
-                        if (users[0].Access_Level.Level == "Приемщик заказов")
-                        {
-                            OrderTakerWindow form = new OrderTakerWindow();
-                            form.Show();
-                            this.Close();
-                        }
-                    }
-                    else MessageBox.Show("Пользователь с такими данным не найден", "Ошибка");
-                }
-                else MessageBox.Show("Не заполнены все поля", "Ошибка");
-            }
+            TryAutorization();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -108,6 +77,47 @@ namespace WpfApplicationEntity
                     MessageBox.Show("Создана новая база двнных, логин и пароль нового пользователя: admin passs","Ошибка",MessageBoxButton.OK,MessageBoxImage.Information);
                 }
             }
+        }
+
+        private void TryAutorization()
+        {
+            using (MyDBContext db = new MyDBContext())
+            {
+                if (!String.IsNullOrWhiteSpace(LoginBox.Text) && !String.IsNullOrWhiteSpace(PasswordBox.Text))
+                {
+                    var users = (from user in db.Workers.ToList()
+                                 where user.Login.CompareTo(LoginBox.Text) == 0 && user.Password.CompareTo(PasswordBox.Text) == 0
+                                 select user).ToList();
+                    if (users.Count() > 0 && db.Workers.Count() > 0)
+                    {
+                        if (users[0].Access_Level.Level == "Администратор")
+                        {
+                            AdminWindow form = new AdminWindow();
+                            form.Show();
+                            this.Close();
+                        }
+                        if (users[0].Access_Level.Level == "Шеф-повар")
+                        {
+                            ChefWindow form = new ChefWindow();
+                            form.Show();
+                            this.Close();
+                        }
+                        if (users[0].Access_Level.Level == "Приемщик заказов")
+                        {
+                            OrderTakerWindow form = new OrderTakerWindow();
+                            form.Show();
+                            this.Close();
+                        }
+                    }
+                    else MessageBox.Show("Пользователь с такими данным не найден", "Ошибка");
+                }
+                else MessageBox.Show("Не заполнены все поля", "Ошибка");
+            }
+        }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                TryAutorization();
         }
     }
 }

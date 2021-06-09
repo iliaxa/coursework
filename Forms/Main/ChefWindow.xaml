@@ -23,7 +23,7 @@
                             <Button x:Name="deleteProductButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteProductButton_Click"></Button>
                             <Button x:Name="createReportProductButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportProductButton_Click"></Button>
                         </WrapPanel>
-                        <DataGrid AutoGenerateColumns="False" x:Name="productsGrid">
+                        <DataGrid AutoGenerateColumns="False" x:Name="productsGrid" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
                                 <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
@@ -48,7 +48,7 @@
                             <Button x:Name="deleteBatch_of_productsButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteBatch_of_productsButton_Click"></Button>
                             <Button x:Name="createReportBatchButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportBatchButton_Click" ></Button>
                         </WrapPanel>
-                        <DataGrid AutoGenerateColumns="False" x:Name="batch_of_productsGrid">
+                        <DataGrid AutoGenerateColumns="False" x:Name="batch_of_productsGrid" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
                                 <DataGridTextColumn Binding="{Binding Product}" Header="Продукт"/>
@@ -73,7 +73,7 @@
                             <Button x:Name="deleteProductTypeButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteProductTypeButton_Click"></Button>
                             <Button x:Name="createReportTypeProductButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportTypeProductButton_Click" ></Button>
                         </WrapPanel>
-                        <DataGrid AutoGenerateColumns="False" x:Name="productsTypeGrid">
+                        <DataGrid AutoGenerateColumns="False" x:Name="productsTypeGrid" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
                                 <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
@@ -97,7 +97,7 @@
                             <Button x:Name="deleteDishButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteDishButton_Click"></Button>
                             <Button x:Name="createReportDishButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportDishButton_Click" ></Button>
                         </WrapPanel>
-                        <DataGrid AutoGenerateColumns="False" x:Name="dishesGrid">
+                        <DataGrid AutoGenerateColumns="False" x:Name="dishesGrid" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
                                 <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>
@@ -124,7 +124,7 @@
                             <Button x:Name="deleteDishTypeButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteDishTypeButton_Click"></Button>
                             <Button x:Name="createReportTypeDishButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportTypeDishButton_Click"></Button>
                         </WrapPanel>
-                        <DataGrid AutoGenerateColumns="False" x:Name="dishTypesGrid">
+                        <DataGrid AutoGenerateColumns="False" x:Name="dishTypesGrid" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Id}" Header="Id" Visibility="Hidden"/>
                                 <DataGridTextColumn Binding="{Binding Name}" Header="Название"/>

@@ -9,10 +9,10 @@ namespace WpfApplicationEntity.API
         [Required] public DateTime Date { get; set; }
         [Required] public DateTime Time { get; set; }
         [Required] public string Place { get; set; }
-        public Transport Transport { get; set; }
-        public Worker Worker { get; set; }
-        public Client Client { get; set; }
-        public Order_Type Order_Type { get; set; }
-        public ICollection<Order_list> Order_Lists{ get; set; }
+        public virtual Transport Transport { get; set; }
+        public virtual Worker Worker { get; set; }
+        public virtual Client Client { get; set; }
+        public virtual Order_Type Order_Type { get; set; }
+        public virtual ICollection<Order_list> Order_Lists { get; set; }
     }
 }
