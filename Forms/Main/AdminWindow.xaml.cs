@@ -155,7 +155,7 @@ namespace WpfApplicationEntity.Forms.Main
             if (transportsGrid.SelectedItem != null)
             {
                 var edit = (Transport)transportsGrid.SelectedItem;
-                AddOrderWindow form = new AddOrderWindow(DBContext.Orders.Find(edit.ID).ID);
+                AddTransportWindow form = new AddTransportWindow(DBContext.Orders.Find(edit.ID).ID);
                 form.ShowDialog();
             }
             else MessageBox.Show("Не выбрано поле для редактирования", "Ошибка");

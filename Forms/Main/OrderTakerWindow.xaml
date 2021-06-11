@@ -100,7 +100,7 @@
                         <WrapPanel>
                             <Button x:Name="addOrderListButton"  Content="Добавить" Margin="3" Padding="3" Click="addOrderListButton_Click"></Button>
                             <Button x:Name="editOrderListButton"  Content="Изменить" Margin="3" Padding="3" Click="editOrderListButton_Click"></Button>
-                            <Button x:Name="deleteOrderListButton"  Content="Изменить" Margin="3" Padding="3" Click="deleteOrderListButton_Click"></Button>
+                            <Button x:Name="deleteOrderListButton"  Content="Удалить" Margin="3" Padding="3" Click="deleteOrderListButton_Click"></Button>
                             <Button x:Name="createReportOrderListButton"  Content="Создать отчет" Margin="3" Padding="3" Click="createReportOrderListButton_Click" ></Button>
                         </WrapPanel>
                         <DataGrid AutoGenerateColumns="False" x:Name="orderListGrid" IsReadOnly="True">

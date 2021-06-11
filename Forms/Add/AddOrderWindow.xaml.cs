@@ -71,6 +71,7 @@ namespace WpfApplicationEntity.Forms.Add
                 else MessageBox.Show("Заполнены не все поля");
                     db.SaveChanges();
             }
+                this.Close();
         }
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {

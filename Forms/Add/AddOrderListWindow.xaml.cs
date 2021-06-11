@@ -54,7 +54,7 @@ namespace WpfApplicationEntity.Forms.Add
                     }
                 }
                 else MessageBox.Show("Заполнены не все поля");
-                    db.SaveChanges();
+                db.SaveChanges();
                 this.Close();
             }
         }
@@ -67,9 +67,9 @@ namespace WpfApplicationEntity.Forms.Add
             string[] splittedOrder = this.OrderCombo.SelectedItem.ToString().Split(new char[] {' '},StringSplitOptions.RemoveEmptyEntries);
             foreach (var item in orders)
             {
-                if (item.Date.ToString() == splittedOrder[0]
+                if (item.Date.ToShortDateString() == splittedOrder[0]
                     && item.Place == splittedOrder[1]
-                    && item.Time.ToString() == splittedOrder[2])
+                    && item.Time.ToShortTimeString() == splittedOrder[2])
                         return item;
             }
             return orders[0];
@@ -91,7 +91,7 @@ namespace WpfApplicationEntity.Forms.Add
                 List<string> orderList = new List<string>();
                 List<string> dishList = new List<string>();
                 foreach (var item in orders)
-                    orderList.Add($"{item.Date} {item.Place} {item.Time}");
+                    orderList.Add($"{item.Date.ToShortDateString()} {item.Place} {item.Time.ToShortTimeString()}");
                 foreach (var item in dishes)
                     dishList.Add(item.Name);
                 OrderCombo.ItemsSource = orderList;
