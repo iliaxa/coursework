@@ -78,9 +78,9 @@ namespace WpfApplicationEntity.Forms.Main
                 }
                 else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
             }
-            catch (Exception ex)
+            catch (System.Data.SqlClient.SqlException)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Нельзя удалить связанные записи", "Ошибка");
             }
         }
 
@@ -105,17 +105,24 @@ namespace WpfApplicationEntity.Forms.Main
 
         private void deleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            if (orderGrid.SelectedItem != null)
+            try
             {
-                var deleted = (GridsInfo.newOrder)orderGrid.SelectedItem;
-                var list = (from item in DBContext.Orders.ToList()
-                               where item.ID.CompareTo(deleted.ID) == 0
-                               select item).ToList();
-                DBContext.Orders.Remove(list[0]);
-                DBContext.SaveChanges();
-                this.ShowAll();
+                if (orderGrid.SelectedItem != null)
+                {
+                    var deleted = (GridsInfo.newOrder)orderGrid.SelectedItem;
+                    var list = (from item in DBContext.Orders.ToList()
+                                where item.ID.CompareTo(deleted.ID) == 0
+                                select item).ToList();
+                    DBContext.Orders.Remove(list[0]);
+                    DBContext.SaveChanges();
+                    this.ShowAll();
+                }
+                else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
             }
-            else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Нельзя удалить связанные записи", "Ошибка");
+            }
         }
 
         private void addOrderTypeButton_Click(object sender, RoutedEventArgs e)
@@ -139,17 +146,24 @@ namespace WpfApplicationEntity.Forms.Main
 
         private void deleteOrderTypeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (orderTypeGrid.SelectedItem != null)
+            try
             {
-                var deleted = (Order_Type)orderTypeGrid.SelectedItem;
-                var list = (from item in DBContext.Order_Types.ToList()
-                               where item.ID.CompareTo(deleted.ID) == 0
-                               select item).ToList();
-                DBContext.Order_Types.Remove(list[0]);
-                DBContext.SaveChanges();
-                this.ShowAll();
+                if (orderTypeGrid.SelectedItem != null)
+                {
+                    var deleted = (Order_Type)orderTypeGrid.SelectedItem;
+                    var list = (from item in DBContext.Order_Types.ToList()
+                                where item.ID.CompareTo(deleted.ID) == 0
+                                select item).ToList();
+                    DBContext.Order_Types.Remove(list[0]);
+                    DBContext.SaveChanges();
+                    this.ShowAll();
+                }
+                else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
             }
-            else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Нельзя удалить связанные записи", "Ошибка");
+            }
         }
 
         private void addOrderListButton_Click(object sender, RoutedEventArgs e)
@@ -173,17 +187,24 @@ namespace WpfApplicationEntity.Forms.Main
 
         private void deleteOrderListButton_Click(object sender, RoutedEventArgs e)
         {
-            if (orderListGrid.SelectedItem != null)
+            try
             {
-                var deleted = (GridsInfo.newOrderList)orderListGrid.SelectedItem;
-                var list = (from item in DBContext.Order_Lists.ToList()
-                               where item.ID.CompareTo(deleted.ID) == 0
-                               select item).ToList();
-                DBContext.Order_Lists.Remove(list[0]);
-                DBContext.SaveChanges();
-                this.ShowAll();
+                if (orderListGrid.SelectedItem != null)
+                {
+                    var deleted = (GridsInfo.newOrderList)orderListGrid.SelectedItem;
+                    var list = (from item in DBContext.Order_Lists.ToList()
+                                where item.ID.CompareTo(deleted.ID) == 0
+                                select item).ToList();
+                    DBContext.Order_Lists.Remove(list[0]);
+                    DBContext.SaveChanges();
+                    this.ShowAll();
+                }
+                else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
             }
-            else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Нельзя удалить связанные записи", "Ошибка");
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

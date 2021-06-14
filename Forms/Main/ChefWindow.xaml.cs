@@ -62,17 +62,24 @@ namespace WpfApplicationEntity.Forms.Main
         }
         private void deleteProductButton_Click(object sender, RoutedEventArgs e)
         {
-            if (productsGrid.SelectedItem != null)
+            try
             {
-                var deleted = (GridsInfo.newProduct)productsGrid.SelectedItem;
-                var list = (from item in DBContext.Products.ToList()
-                            where item.ID.CompareTo(deleted.ID) == 0
-                            select item).ToList();
-                DBContext.Products.Remove(list[0]);
-                DBContext.SaveChanges();
-                this.ShowAll();
+                if (productsGrid.SelectedItem != null)
+                {
+                    var deleted = (GridsInfo.newProduct)productsGrid.SelectedItem;
+                    var list = (from item in DBContext.Products.ToList()
+                                where item.ID.CompareTo(deleted.ID) == 0
+                                select item).ToList();
+                    DBContext.Products.Remove(list[0]);
+                    DBContext.SaveChanges();
+                    this.ShowAll();
+                }
+                else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
             }
-            else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Нельзя удалить связанные записи", "Ошибка");
+            }
         }
         private void addBatchButton_Click(object sender, RoutedEventArgs e)
         {
@@ -94,17 +101,24 @@ namespace WpfApplicationEntity.Forms.Main
         }
         private void deleteBatch_of_productsButton_Click(object sender, RoutedEventArgs e)
         {
-            if (batch_of_productsGrid.SelectedItem != null)
+            try
             {
-                var deleted = (GridsInfo.newBatch)batch_of_productsGrid.SelectedItem;
-                var list = (from item in DBContext.Batch_Of_Products.ToList()
-                            where item.ID.CompareTo(deleted.ID) == 0
-                            select item).ToList();
-                DBContext.Batch_Of_Products.Remove(list[0]);
-                DBContext.SaveChanges();
-                this.ShowAll();
+                if (batch_of_productsGrid.SelectedItem != null)
+                {
+                    var deleted = (GridsInfo.newBatch)batch_of_productsGrid.SelectedItem;
+                    var list = (from item in DBContext.Batch_Of_Products.ToList()
+                                where item.ID.CompareTo(deleted.ID) == 0
+                                select item).ToList();
+                    DBContext.Batch_Of_Products.Remove(list[0]);
+                    DBContext.SaveChanges();
+                    this.ShowAll();
+                }
+                else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
             }
-            else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Нельзя удалить связанные записи", "Ошибка");
+            }
         }
         private void addProductTypeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -125,17 +139,24 @@ namespace WpfApplicationEntity.Forms.Main
         }
         private void deleteProductTypeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (productsTypeGrid.SelectedItem != null)
+            try
             {
-                var deleted = (Product_Type)productsTypeGrid.SelectedItem;
-                var list = (from item in DBContext.Product_Types.ToList()
-                            where item.ID.CompareTo(deleted.ID) == 0
-                            select item).ToList();
-                DBContext.Product_Types.Remove(list[0]);
-                DBContext.SaveChanges();
-                this.ShowAll();
+                if (productsTypeGrid.SelectedItem != null)
+                {
+                    var deleted = (Product_Type)productsTypeGrid.SelectedItem;
+                    var list = (from item in DBContext.Product_Types.ToList()
+                                where item.ID.CompareTo(deleted.ID) == 0
+                                select item).ToList();
+                    DBContext.Product_Types.Remove(list[0]);
+                    DBContext.SaveChanges();
+                    this.ShowAll();
+                }
+                else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
             }
-            else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Нельзя удалить связанные записи", "Ошибка");
+            }
         }
 
         private void addDishButton_Click(object sender, RoutedEventArgs e)
@@ -158,17 +179,24 @@ namespace WpfApplicationEntity.Forms.Main
         }
         private void deleteDishButton_Click(object sender, RoutedEventArgs e)
         {
-            if (dishesGrid.SelectedItem != null)
+            try
             {
-                var deleted = (GridsInfo.newDish)dishesGrid.SelectedItem;
-                var list = (from item in DBContext.Dishes.ToList()
-                            where item.ID.CompareTo(deleted.ID) == 0
-                            select item).ToList();
-                DBContext.Dishes.Remove(list[0]);
-                DBContext.SaveChanges();
-                this.ShowAll();
+                if (dishesGrid.SelectedItem != null)
+                {
+                    var deleted = (GridsInfo.newDish)dishesGrid.SelectedItem;
+                    var list = (from item in DBContext.Dishes.ToList()
+                                where item.ID.CompareTo(deleted.ID) == 0
+                                select item).ToList();
+                    DBContext.Dishes.Remove(list[0]);
+                    DBContext.SaveChanges();
+                    this.ShowAll();
+                }
+                else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
             }
-            else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Нельзя удалить связанные записи", "Ошибка");
+            }
         }
         private void addDishTypeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -190,17 +218,24 @@ namespace WpfApplicationEntity.Forms.Main
         }
         private void deleteDishTypeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (dishTypesGrid.SelectedItem != null)
+            try
             {
-                var deleted = (Dish_type)dishTypesGrid.SelectedItem;
-                var list = (from item in DBContext.Dish_Types.ToList()
-                            where item.ID.CompareTo(deleted.ID) == 0
-                            select item).ToList();
-                DBContext.Dish_Types.Remove(list[0]);
-                DBContext.SaveChanges();
-                this.ShowAll();
+                if (dishTypesGrid.SelectedItem != null)
+                {
+                    var deleted = (Dish_type)dishTypesGrid.SelectedItem;
+                    var list = (from item in DBContext.Dish_Types.ToList()
+                                where item.ID.CompareTo(deleted.ID) == 0
+                                select item).ToList();
+                    DBContext.Dish_Types.Remove(list[0]);
+                    DBContext.SaveChanges();
+                    this.ShowAll();
+                }
+                else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
             }
-            else MessageBox.Show("Не выбрано поле для удаления", "Ошибка");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Нельзя удалить связанные записи", "Ошибка");
+            }
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

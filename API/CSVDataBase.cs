@@ -64,7 +64,7 @@ namespace WpfApplicationEntity.API
         }
         private static void InsertTable(string query, string[] values, int count, SqlConnection connection)
         {
-            query += $" values (";
+            query += " values (";
             for (int i = 0; i < count; i++)
             {
                 query += $"'{values[i]}', ";
